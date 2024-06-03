@@ -14,7 +14,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/');
+      const response = await axios.get('https://backend-psi-fawn.vercel.app/');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -23,7 +23,7 @@ function App() {
 
   const syncData = async () => {
     try {
-      await axios.get('http://localhost:3000/sync/');
+      await axios.get('https://backend-psi-fawn.vercel.app/sync/');
       fetchData();
     } catch (error) {
       console.error('Error syncing data:', error);
@@ -33,7 +33,7 @@ function App() {
   const addRow = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/row/', null, {
+      await axios.post('https://backend-psi-fawn.vercel.app/row/', null, {
         params: {
           ID: id,
           'Avatar Name': avatarName,
@@ -48,7 +48,7 @@ function App() {
 
   const deleteRow = async (id) => {
     try {
-      await axios.delete('http://localhost:3000/row/', {
+      await axios.delete('https://backend-psi-fawn.vercel.app/row/', {
         params: { ID: id },
       });
       fetchData();
